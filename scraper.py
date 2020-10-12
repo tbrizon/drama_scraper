@@ -156,7 +156,7 @@ if __name__ == "__main__":
 	argument.add_argument("-n", "--name", help="laumch the scraper for the site name, if not found, return error", type=str)
 	args = argument.parse_args()
 	if not os.path.isdir('./data'):
-		delay_print(bcolors.OKGREEN + "creating a data repository to collect vectors\n\n" , 0.01)
+		delay_print(bcolors.OKGREEN + "creating a data directory to collect vectors\n\n" , 0.01)
 		os.mkdir('data')
 	if args.all == True:
 			x = input("scraper to portsigger and owasp ? ")
