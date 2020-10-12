@@ -35,9 +35,9 @@ def ask_input(new, url, fd, name):
 			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.001)
 		else:
 			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.01)
-		delay_print(b.OKGREEN + "continue ?", 0.02)
+		delay_print(b.OKGREEN + "do you want to continue with this vectors ?", 0.02)
 		x = input("[y][n] ")
-		if x == 'n':
+		if x == 'n' or x == 'N':
 			return (0)
 	if x == 'n' or x == 'y':
 		delay_print(b.OKGREEN+"you can exit by presing [q]\n",0.02)
@@ -75,7 +75,6 @@ def adjust(dest_fd, content_lst):
 	else:
 		content |= set(content_lst)
 	content.discard('\n')
-	#tkt = [diff for diff in data if diff not in content] 
 	new = [diff for diff in content if diff not in data] #va me trouver les nouveaux vectors 	
 	return (new)
 
