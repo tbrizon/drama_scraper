@@ -67,7 +67,7 @@ def ask_input(new, url, fd, name):
 		delay_print(b.WARNING + "command not found, abort..." + b.ENDC, 0.03)
 
 def adjust(dest_fd, content_lst):
-	data = dest_fd.readlines() #liste des lignes contenu dans le file dest_fd (selui qu'on va changer)
+	data = dest_fd.readlines()
 	content = set()
 	if type(content_lst[0]) == list:
 		for x in range(len(content_lst)):
@@ -75,7 +75,7 @@ def adjust(dest_fd, content_lst):
 	else:
 		content |= set(content_lst)
 	content.discard('\n')
-	new = [diff for diff in content if diff not in data] #va me trouver les nouveaux vectors 	
+	new = [diff for diff in content if diff not in data]
 	return (new)
 
 def	decode(content_lst):
@@ -100,7 +100,7 @@ def scraper_portswigger(url, dest_fd):
 	vectors = requests.get(url)
 	a = vectors.text.strip('var data = ')
 	size = len(a)
-	vectors = json.loads(a[:size - 1]) #error with the last character ','..
+	vectors = json.loads(a[:size - 1])
 	for item_key, item_value in vectors.items():
 			for tags in item_value['tags']:
 				if tags['interaction'] == False:
@@ -113,7 +113,7 @@ def scraper_portswigger(url, dest_fd):
 
 def	scraper_owasp(url, dest_fd):
 	patterns = {
-	'owasp' : [re.compile('<code>(.*)\s</code>') ,#pas sur de ce regex
+	'owasp' : [re.compile('<code>(.*)\s</code>') ,
 				re.compile('<code class="language-plaintext highlighter-rouge">(.*)</code>'),
 				re.compile('<code class="language-plaintext highlighter-rouge">(.*)\s</code>')]
 	}
