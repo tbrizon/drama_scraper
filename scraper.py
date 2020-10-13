@@ -32,9 +32,9 @@ def ask_input(new, url, fd, name):
 	x = input(b.OKGREEN + "\n")
 	if x == 'y' or x == 'Y':
 		if size_new > 40:
-			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.001)
+			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.0005)
 		else:
-			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.01)
+			delay_print(b.BOLD + b.OKBLUE + ''.join(new) + '\n\n'+b.ENDC, 0.001)
 		delay_print(b.OKGREEN + "do you want to continue with this vectors ?", 0.02)
 		x = input("[y][n] ")
 		if x == 'n' or x == 'N':
